@@ -1,9 +1,3 @@
-if (navigator.onLine) {
-    alert('I am online');
-} else {
-	alert('Not online');
-}
-
 $(document).bind("mobileinit", function() {
 	// Make your jQuery Mobile framework configuration changes here!
 	/* $.mobile.defaultPageTransition = 'none'; */

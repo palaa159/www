@@ -14,7 +14,7 @@ html, body {
 #mapView {
     position: relative;
     height: 100% !important;
-    width: 100%;
+    width: 100% !important;
     z-index: 1 !important;
     overflow: hidden !important;
 }

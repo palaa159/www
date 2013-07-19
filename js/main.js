@@ -1,3 +1,10 @@
+$(document).delegate("#menu", "pageinit", function() {
+	if (navigator.onLine) {} else {
+		$('.links').html('you need an internet connection to continue');
+		$('.clickForMap').hide();
+	}
+});
+
 $(document).delegate("#mapView", "pageinit", function() {
 	var map = L.map('map', {
 		zoomControl: false
@@ -18,7 +25,9 @@ $(document).delegate("#mapView", "pageinit", function() {
 			setView: true,
 			minZoom: 16,
 			maxZoom: 18,
-			enableHighAccuracy: true
+			enableHighAccuracy: true,
+			maximumAge: 10000, 
+			timeout: 100000
 		});
 	}
 
