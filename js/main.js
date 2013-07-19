@@ -7,7 +7,7 @@ $(document).delegate("#mapView", "pageinit", function() {
 		fillOpacity: 0.9
 	}).bindPopup('You are here').addTo(map);
 	L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
-		minZoom: 10,
+		minZoom: 16,
 		maxZoom: 18
 	}).addTo(map);
 	// init locate
@@ -16,8 +16,9 @@ $(document).delegate("#mapView", "pageinit", function() {
 		map.locate({
 			watch: true,
 			setView: true,
-			minZoom: 10,
-			maxZoom: 16
+			minZoom: 16,
+			maxZoom: 18,
+			enableHighAccuracy: true
 		});
 	}
 
