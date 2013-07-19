@@ -20,11 +20,7 @@ $(document).delegate("#mapView", "pageinit", function() {
 	}).addTo(map);
 	// carto DB
 	var cartoURL = 'http://motf.cartodb.com/api/v2/viz/e5b060c6-f02c-11e2-b3a8-4b78298282b3/viz.json';
-	cartodb.createLayer(map, cartoURL).on('done', function(layer) {
-		map.addLayer(layer);
-	}).on('error', function() {
-		//log the error
-	});
+	cartodb.createLayer(map, cartoURL).addTo(map);
 	// init locate
 
 	function findLocation() {
