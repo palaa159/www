@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.phonegap.memories-of-the-future"
+        version   = "0.1.0">
+    <name>Memories of the Future</name>
+
+    <description>
+        App for Memories of the Future.
+    </description>
+
+    <author href="http://phonegap.com" email="support@phonegap.com">
+        Apon Palanuwech
+    </author>
+
+    <feature name="http://api.phonegap.com/1.0/battery"/>
+	<feature name="http://api.phonegap.com/1.0/camera"/>
+	<feature name="http://api.phonegap.com/1.0/contacts"/>
+	<feature name="http://api.phonegap.com/1.0/file"/>
+	<feature name="http://api.phonegap.com/1.0/geolocation"/>
+	<feature name="http://api.phonegap.com/1.0/media"/>
+	<feature name="http://api.phonegap.com/1.0/network"/>
+	<feature name="http://api.phonegap.com/1.0/notification"/>
+
+    <preference name="phonegap-version" value="2.9.0" />
+    <preference name="orientation"      value="portrait" />
+    <preference name="target-device"    value="universal" />
+    <preference name="fullscreen"       value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="show-splash-screen-spinner" value="true" />
+
+<!--  access -->
+	<access origin="*" />
+
+    <icon src="icon.png" />
+    <gap:splash src="splash.png" />
+    
+</widget>
