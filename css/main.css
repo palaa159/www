@@ -11,10 +11,10 @@ html, body {
 	float: right;
 }
 
-#mapView {
-    position: relative;
-    height: 100% !important;
-    width: 100% !important;
-    z-index: 1 !important;
-    overflow: hidden !important;
+#map {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
