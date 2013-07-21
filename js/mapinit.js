@@ -4,6 +4,7 @@ $(document).delegate("#menu", "pageinit", function() {
 		$('.clickForMap').hide();
 	}
 });
+
 $('#flip-mini').bind('change', function(event, ui) {
 	if ($('#flip-mini').val() == 'on') {
 		alert('triggered explore mode');
@@ -11,7 +12,7 @@ $('#flip-mini').bind('change', function(event, ui) {
 		alert('disable');
 	}
 });
-var map, myPos;
+var map, myPos, newLatLng;
 
 function init() {
 	// initiate leaflet map
@@ -39,8 +40,11 @@ map.setMaxBounds([
 	}).on('error', function() {
 		//log the error
 	});
-	myPos = new L.marker([0, 0], {
-		radius: 4
+	myPos = new L.circleMarker([0, 0], {
+		stroke: false,
+		fillColor: '#3399ff',
+		fillOpacity: 1,
+		radius: 8
 	}).bindPopup('This is YOU').addTo(map);
 }
 
@@ -70,12 +74,20 @@ function detectUserLocation() {
 function mapToPosition(position) {
 	lng = position.coords.longitude;
 	lat = position.coords.latitude;
-	var newLatLng = new L.LatLng(lat, lng);
+	newLatLng = new L.LatLng(lat, lng);
 	myPos.setLatLng(newLatLng);
 }
+
+function clientLocate(){
+	map.panTo(newLatLng);
+}
+
 $(document).delegate("#mapView", "pageinit", function() {
 	init();
 	$('#cartodb-map').css({
 		'height': window.innerHeight - 42
+	});
+	$('#clientLocate').click(function() {
+		clientLocate();
 	});
 });

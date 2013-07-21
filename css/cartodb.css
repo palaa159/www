@@ -9,7 +9,7 @@
 
   div.cartodb-popup {
     position:relative;
-    width:226px;
+    width:400px;
     height:auto;
     padding:7px 0 0 0;
     margin:0;
@@ -18,8 +18,8 @@
 
   div.cartodb-popup div.cartodb-popup-content-wrapper {
     position:relative;
-    width:190px;
-    max-width: 190px;
+    width:370px;
+    max-width: 370px;
     padding:12px 19px 12px 19px;
     overflow-x: hidden;
     background:url('img/light.png') repeat-y -452px 0;
@@ -27,11 +27,11 @@
 
   div.cartodb-popup div.cartodb-popup-content {
     display:block;
-    width:190px;
-    max-width: 190px;
-    min-height:5px;
+    width:370px;
+    max-width: 370px;
+    min-height:300px;
     height:auto;
-    max-height:185px;
+    max-height:500px;
     margin: 0;
     padding: 0;
     overflow-y: auto;
