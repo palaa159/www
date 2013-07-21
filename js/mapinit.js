@@ -81,7 +81,7 @@ function mapToPosition(position) {
 }
 
 function clientLocate() {
-	map.panTo(newLatLng);
+	map.setView(newLatLng, 16);
 	$('#locatingBox').fadeOut();
 	mapFullOpacity();
 }
@@ -102,7 +102,7 @@ $(document).delegate("#mapView", "pageinit", function() {
 });
 
 function mapZeroOpacity() {
-	$('#cartodb-map').animate({
+	$('#cartodb-map').css({
 		'opacity': 0
 	});
 }
