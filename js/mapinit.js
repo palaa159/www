@@ -76,6 +76,7 @@ function mapToPosition(position) {
 	lat = position.coords.latitude;
 	newLatLng = new L.LatLng(lat, lng);
 	myPos.setLatLng(newLatLng);
+	map.invalidateSize();
 }
 
 function clientLocate(){
