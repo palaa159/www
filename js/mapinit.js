@@ -4,22 +4,65 @@ $(document).delegate("#menu", "pageinit", function() {
 		$('.clickForMap').hide();
 	}
 });
+var map, myPos;
 $(document).delegate("#mapView", "pageinit", function() {
-	map = new L.Map('map', {
+	// initiate leaflet map
+	map = new L.Map('cartodb-map', {
 		center: [40.732161, -73.97832],
+		minZoom: 14,
 		zoom: 16,
 		zoomControl: false
 	});
+	map.setMaxBounds([
+		[40.726316, -73.994808],
+		[40.742445, -73.960047]
+	]);
 	L.tileLayer('http://a.tiles.mapbox.com/v3/michaelisanerd.map-2s73eo1z/{z}/{x}/{y}.png').addTo(map);
 	var layerUrl = 'http://motf.cartodb.com/api/v2/viz/050cf1ba-f0d6-11e2-b18a-0d7bf43d6c28/viz.json';
 	cartodb.createLayer(map, layerUrl).addTo(map).on('done', function(layer) {
 		// change the query for the first layer
 		var sublayer = layer.getSubLayer(0);
 		sublayer.infowindow.set('template', $('#infowindow_template').html());
+		detectUserLocation();
+		map.invalidateSize();
 	}).on('error', function() {
 		//log the error
 	});
+	myPos = new L.marker([0, 0], {
+		radius: 4
+	}).bindPopup('This is YOU').addTo(map);
 });
+
+function detectUserLocation() {
+	if (navigator.geolocation) {
+		var timeoutVal = 10 * 1000 * 1000;
+		navigator.geolocation.watchPosition(
+		mapToPosition, alertError, {
+			enableHighAccuracy: true,
+			timeout: timeoutVal,
+			maximumAge: 0
+		});
+	} else {
+		alert("Geolocation is not supported by this browser");
+	}
+
+	function alertError(error) {
+		var errors = {
+			1: 'Permission denied',
+			2: 'Position unavailable',
+			3: 'Request timeout'
+		};
+		alert("Error: " + errors[error.code]);
+	}
+}
+
+function mapToPosition(position) {
+	lng = position.coords.longitude;
+	lat = position.coords.latitude;
+	var newLatLng = new L.LatLng(lat, lng);
+	myPos.setLatLng(newLatLng);
+	map.invalidateSize();
+}
 
 $('#flip-mini').bind('change', function(event, ui) {
 	if ($('#flip-mini').val() == 'on') {
