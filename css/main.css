@@ -21,6 +21,7 @@ html,body {
     top: 40px !important;
     width: 100% !important;
     float: left !important;
+    overflow: hidden;
 }
 
 .cartodb-logo {
