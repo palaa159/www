@@ -2,11 +2,11 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phonegap.memories-of-the-future"
-        version   = "0.1.0">
+        version   = "0.1.1">
     <name>Memories of the Future</name>
 
     <description>
-        App for Memories of the Future.
+        Migrate to www
     </description>
 
     <author href="http://phonegap.com" email="support@phonegap.com">
