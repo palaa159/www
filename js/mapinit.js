@@ -1,11 +1,19 @@
 $(document).delegate("#menu", "pageinit", function() {
 	if (navigator.onLine) {} else {
 		$('.links').html('you need an internet connection to continue');
-		/* $('.clickForMap').hide(); */
+		$('.clickForMap').hide();
+	}
+});
+$('#flip-mini').bind('change', function(event, ui) {
+	if ($('#flip-mini').val() == 'on') {
+		alert('triggered explore mode');
+	} else {
+		alert('disable');
 	}
 });
 var map, myPos;
-$(document).delegate("#mapView", "pageinit", function() {
+
+function init() {
 	// initiate leaflet map
 	map = new L.Map('cartodb-map', {
 		center: [40.732161, -73.97832],
@@ -13,6 +21,7 @@ $(document).delegate("#mapView", "pageinit", function() {
 		zoom: 16,
 		zoomControl: false
 	});
+	// set map bound
 	/*
 map.setMaxBounds([
 		[40.726316, -73.994808],
@@ -33,7 +42,7 @@ map.setMaxBounds([
 	myPos = new L.marker([0, 0], {
 		radius: 4
 	}).bindPopup('This is YOU').addTo(map);
-});
+}
 
 function detectUserLocation() {
 	if (navigator.geolocation) {
@@ -63,13 +72,10 @@ function mapToPosition(position) {
 	lat = position.coords.latitude;
 	var newLatLng = new L.LatLng(lat, lng);
 	myPos.setLatLng(newLatLng);
-	map.invalidateSize();
-} 
-
-$('#flip-mini').bind('change', function(event, ui) {
-	if ($('#flip-mini').val() == 'on') {
-		alert('triggered explore mode');
-	} else {
-		alert('disable');
-	}
+}
+$(document).delegate("#mapView", "pageinit", function() {
+	init();
+	$('#cartodb-map').css({
+		'height': window.innerHeight - 42
+	});
 });
