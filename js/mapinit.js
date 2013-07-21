@@ -1,7 +1,7 @@
 $(document).delegate("#menu", "pageinit", function() {
 	if (navigator.onLine) {} else {
 		$('.links').html('you need an internet connection to continue');
-		$('.clickForMap').hide();
+		/* $('.clickForMap').hide(); */
 	}
 });
 var map, myPos;
