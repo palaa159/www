@@ -13,10 +13,12 @@ $(document).delegate("#mapView", "pageinit", function() {
 		zoom: 16,
 		zoomControl: false
 	});
-	map.setMaxBounds([
+	/*
+map.setMaxBounds([
 		[40.726316, -73.994808],
 		[40.742445, -73.960047]
 	]);
+*/
 	L.tileLayer('http://a.tiles.mapbox.com/v3/michaelisanerd.map-2s73eo1z/{z}/{x}/{y}.png').addTo(map);
 	var layerUrl = 'http://motf.cartodb.com/api/v2/viz/050cf1ba-f0d6-11e2-b18a-0d7bf43d6c28/viz.json';
 	cartodb.createLayer(map, layerUrl).addTo(map).on('done', function(layer) {
@@ -62,7 +64,7 @@ function mapToPosition(position) {
 	var newLatLng = new L.LatLng(lat, lng);
 	myPos.setLatLng(newLatLng);
 	map.invalidateSize();
-}
+} 
 
 $('#flip-mini').bind('change', function(event, ui) {
 	if ($('#flip-mini').val() == 'on') {
