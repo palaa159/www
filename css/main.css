@@ -15,6 +15,7 @@ html,body {
 	left:0;
 	overflow:hidden!important;
 	width:100%!important;
+	opacity: 0;
 }
 
 .cartodb-logo {
@@ -37,6 +38,11 @@ html,body {
 	width: 250px;
 	text-align: center;
 }
+
+.leaflet-tile-pane {
+/* 	transform:rotate(45deg)!important; */
+}
+
 /* Style for info window */
 
 div.cartodb-popup {

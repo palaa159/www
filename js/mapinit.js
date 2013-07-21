@@ -86,7 +86,6 @@ function clientLocate() {
 	mapFullOpacity();
 }
 $(document).delegate("#mapView", "pageinit", function() {
-	mapZeroOpacity();
 	$('#locatingBox').css({
 		'left': window.innerWidth / 2 - $('#locatingBox').width() / 2
 	});
@@ -100,12 +99,6 @@ $(document).delegate("#mapView", "pageinit", function() {
 		clientLocate();
 	});
 });
-
-function mapZeroOpacity() {
-	$('#cartodb-map').css({
-		'opacity': 0
-	});
-}
 
 function mapHalfOpacity() {
 	$('#cartodb-map').animate({
