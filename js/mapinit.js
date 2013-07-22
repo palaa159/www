@@ -30,6 +30,7 @@ map.setMaxBounds([
 */
 	L.tileLayer('http://a.tiles.mapbox.com/v3/michaelisanerd.map-2s73eo1z/{z}/{x}/{y}.png').addTo(map);
 	var layerUrl = 'http://motf.cartodb.com/api/v2/viz/050cf1ba-f0d6-11e2-b18a-0d7bf43d6c28/viz.json';
+	console.log('cartoDB layer has been loaded');
 	cartodb.createLayer(map, layerUrl).addTo(map).on('done', function(layer) {
 		// change the query for the first layer
 		var sublayer = layer.getSubLayer(0);
