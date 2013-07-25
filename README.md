@@ -1,4 +1,13 @@
 Memories of the Future : Hunts Point
 ===
 
-motf
+Iteration 1
+-----------
+
+CartoDB
+  |
+Leaflet
+  |
+jQuery Mobile
+  |
+PhoneGap
