@@ -88,11 +88,11 @@ function clientLocate() {
 }
 $(document).delegate("#mapView", "pageinit", function() {
 	$('#locatingBox').css({
-		'left': window.innerWidth / 2 - $('#locatingBox').width() / 2
+		'left': screenWidth / 2 - $('#locatingBox').width() / 2
 	});
 	init();
 	$('#cartodb-map').css({
-		'height': window.innerHeight - 42
+		'height': screenHeight - 42
 	});
 	$('#clientLocate').click(function() {
 		mapHalfOpacity();

@@ -1,3 +1,10 @@
+var screenWidth, screenHeight;
+function test(a) {
+	console.log(a);
+}
+screenWidth = window.innerWidth;
+screenHeight = window.innerHeight;
+
 $(document).bind("mobileinit", function() {
 	// Make your jQuery Mobile framework configuration changes here!
 	/* $.mobile.defaultPageTransition = 'none'; */
@@ -6,5 +13,5 @@ $(document).bind("mobileinit", function() {
 	$.mobile.loader.prototype.options.text = "loading";
 	$.mobile.loader.prototype.options.textVisible = true;
 	$.mobile.loader.prototype.options.theme = "a";
-	$.mobile.loader.prototype.options.html = "";
+	$.mobile.loader.prototype.options.html = "";	
 });
