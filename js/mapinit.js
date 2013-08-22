@@ -1,28 +1,4 @@
-$(document).delegate("#menu", "pageinit", function() {
-	// if (navigator.onLine) {} else {
-	// 	$('.links').html('you need an internet connection to continue');
-	// 	$('.clickForMap').hide();
-	// }
-	var url = 'https://spreadsheets.google.com/feeds/list/0Anp1XGvTb8RGdGZmQ2FhSXFhcXlrMW5zUzM1NlpiRlE/1/public/values?alt=json';
-	$.ajax({
-		cache: false,
-		url: url,
-		success: function() {
-			console.log('ok');
-		},
-		error: function() {
-			$('.links').html('you need an internet connection to continue');
-			$('.clickForMap').hide();
-		}
-	});
-});
-$('#flip-mini').bind('change', function(event, ui) {
-	if ($('#flip-mini').val() == 'on') {
-		alert('triggered explore mode');
-	} else {
-		alert('disable');
-	}
-});
+console.log('mapinit loaded');
 var map, myPos, newLatLng;
 
 function init() {
