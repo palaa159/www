@@ -24,4 +24,8 @@ $(document).delegate("#detailView", "pageshow", function() {
 	});
 	$('#detailSeqNum').html('[' + fetchedData[currData].ID + '/' + fetchedData.length + ']');
 	$('#detailNodeDesc').html(fetchedData[currData].desc);
+
+	window.addEventListener('orientationchange', function(evt) {
+		$('body').html(evt.orientation);
+	});
 });
