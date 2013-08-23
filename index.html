@@ -4,16 +4,15 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="format-detection" content="telephone=no">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css">
 	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="css/mediaelementplayer.css">
 	<title>Memories of the Future</title>     
 	<script src="js/vendor/jquery.min.js"></script>
 	<script src="js/vendor/jquery.mobile-1.3.1.min.js"></script>
 	<script src="js/vendor/energize.min.js"></script>
 	<script src="js/vendor/parse.min.js"></script>
-	<script src="js/vendor/mediaelement-and-player.min.js"></script>
+	<script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
 	<script src="js/appinit.js"></script>
 	<script src="js/listview.js"></script>
 	<script src="js/detailview.js"></script>
@@ -96,9 +95,7 @@
 			<div id="detailNodeTitle"></div>
 			<div id="detailNodeAddress"></div>
 			<div id="detailNodeVideo">
-				<video width="" height="" id="vimeoPlayer" preload="none">
-    				<source type="video/vimeo" src="http://www.youtube.com/watch?v=nOEw9iiopwI" />
-				</video>
+				<iframe id="vimeo-player" src="" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 			</div>
 			<div id="detailSeqNum"></div>
 			<div id="detailNodeDesc"></div>
