@@ -23,7 +23,6 @@ $(document).delegate("#detailView", "pageshow", function() {
 		'height': WIDTH*9/16,
 		'src': url
 	});
-	
 	$('#detailSeqNum').html('[' + fetchedData[currData].ID + '/' + fetchedData.length + ']');
 	$('#detailNodeDesc').html(fetchedData[currData].desc);
 });
