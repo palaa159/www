@@ -1,4 +1,5 @@
 $(document).delegate("#listView", "pageinit", function() {
+	preventOrientation();
 	// render fetchedData
 	console.log('listview loaded');
 	$.each(fetchedData, function(i, v) {
