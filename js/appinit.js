@@ -46,8 +46,17 @@ function centerObj(a) {
 	});
 }
 function sortByKey(array, key) {
-    return array.sort(function(a, b) {
-        var x = a[key]; var y = b[key];
-        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-    });
+	return array.sort(function(a, b) {
+		var x = a[key]; var y = b[key];
+		return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+	});
+}
+function preventOrientation() {
+	$(window).bind("orientationchange", function(){
+		var orientation = window.orientation;
+		var new_orientation = (orientation) ? 0 : 180 + orientation;
+		$('body').css({
+			"-webkit-transform": "rotate(" + new_orientation + "deg)"
+		});
+	});
 }
