@@ -1,39 +1,60 @@
 console.log('mapinit loaded');
 var map, myPos, newLatLng;
 
+$(document).delegate("#mapView", "pageinit", function() {
+	$('#locatingBox').css({
+		'left': sW / 2 - $('#locatingBox').width() / 2
+	});
+	init();
+	detectUserLocation();
+	$('#map').css({
+		'height': sH - 42
+	});
+	$('#clientLocate').click(function() {
+		mapHalfOpacity();
+		$('#locatingBox').fadeIn();
+		clientLocate();
+	});
+});
+
 function init() {
 	// initiate leaflet map
-	map = new L.Map('cartodb-map', {
+	map = new L.Map('map', {
 		center: [40.732161, -73.97832],
 		minZoom: 14,
 		zoom: 16,
 		zoomControl: false
 	});
 	// set map bound
-/*
-map.setMaxBounds([
-		[40.726316, -73.994808],
-		[40.742445, -73.960047]
-	]);
-*/
+
+	// map.setMaxBounds([
+	// 	[40.726316, -73.994808],
+	// 	[40.742445, -73.960047]
+	// ]);
+
+	// user
+
 	L.tileLayer('http://a.tiles.mapbox.com/v3/michaelisanerd.map-2s73eo1z/{z}/{x}/{y}.png').addTo(map);
-	var layerUrl = 'http://motf.cartodb.com/api/v2/viz/6cad9354-02d0-11e3-8cc2-df3805472c1a/viz.json';
-	console.log('cartoDB layer has been loaded');
-	cartodb.createLayer(map, layerUrl).addTo(map).on('done', function(layer) {
-		// change the query for the first layer
-		var sublayer = layer.getSubLayer(0);
-		sublayer.infowindow.set('template', $('#infowindow_template').html());
-		detectUserLocation();
-		map.invalidateSize();
-	}).on('error', function() {
-		//log the error
-	});
 	myPos = new L.circleMarker([0, 0], {
 		stroke: false,
 		fillColor: '#3399ff',
 		fillOpacity: 1,
 		radius: 8
 	}).bindPopup('This is YOU').addTo(map);
+
+	// nodes
+	// query data
+	var nodes = [];
+	$.each(fetchedData, function(i, v) {
+		nodes[i] = L.marker(v.geoData)
+		.addTo(map)
+		.bindPopup('<a onclick="setCurrData(' + i + ');" href="#detailView"><div class="contextualView">' + v.address +'<br>' + v.author +'</div></a>');
+	});
+
+}
+
+function setCurrData(a) {
+	currData = a;
 }
 
 function detectUserLocation() {
@@ -74,29 +95,15 @@ function clientLocate() {
 	$('#locatingBox').fadeOut();
 	mapFullOpacity();
 }
-$(document).delegate("#mapView", "pageinit", function() {
-	$('#locatingBox').css({
-		'left': screenWidth / 2 - $('#locatingBox').width() / 2
-	});
-	init();
-	$('#cartodb-map').css({
-		'height': screenHeight - 42
-	});
-	$('#clientLocate').click(function() {
-		mapHalfOpacity();
-		$('#locatingBox').fadeIn();
-		clientLocate();
-	});
-});
 
 function mapHalfOpacity() {
-	$('#cartodb-map').animate({
+	$('#map').animate({
 		'opacity': 0.5
 	});
 }
 
 function mapFullOpacity() {
-	$('#cartodb-map').animate({
+	$('#map').animate({
 		'opacity': 1
 	});
 }

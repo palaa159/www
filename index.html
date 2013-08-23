@@ -6,6 +6,7 @@
 	<meta name="format-detection" content="telephone=no">
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css">
+	<link rel="stylesheet" href="css/leaflet.css">
 	<link rel="stylesheet" href="css/main.css">
 	<title>Memories of the Future</title>     
 	<script src="js/vendor/jquery.min.js"></script>
@@ -13,10 +14,11 @@
 	<script src="js/vendor/energize.min.js"></script>
 	<script src="js/vendor/parse.min.js"></script>
 	<script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+	<script src="js/vendor/leaflet.js"></script>
 	<script src="js/appinit.js"></script>
 	<script src="js/listview.js"></script>
 	<script src="js/detailview.js"></script>
-	<!--  <script src="js/mapinit.js"></script> -->
+	<script src="js/mapinit.js"></script>
 </head>
 <body>
 	<!-- 	Fetch -->
@@ -33,7 +35,7 @@
 		<div data-role="content">
 			<h3>Memories of the Future</h3>
 			<p>This is a location-based cinema project focusing on issues affecting the Hunt's Point community</p>
-			<p><a href="#listView" data-role="button" data-inline="true" class="clickForMap">List View</a></p>
+			<p><a href="#mapView" data-role="button" data-inline="true" class="clickForMap">Begin</a></p>
 		</div>
 	</div>
 	<!-- Credit -->
@@ -48,25 +50,24 @@
 	<!-- 	Map View -->
 	<div data-role="page" id="mapView">
 		<div data-role="header" data-position="fixed" data-tap-toggle="false">
-			<a href="#contribute">Contribute</a>
-			<h1>Memories of the Future</h1>
 			<a href="#menu">About</a>
+			<h1>Memories of the Future</h1>
+			<a href="#listView">List</a>
 		</div>
 		<div data-role="content">
-			<div id="cartodb-map">
+			<div id="map">
 			</div>
 			<div id="locatingBox">Please hold on while we're locating you</div>
 		</div>
 		<div data-position="fixed" data-tap-toggle="false" class="customFooter" >
 			<a href="#" id="clientLocate" data-role="button" data-inline="true">Locate</a>
-			<a href="#explore" id="clientExplore" data-role="button" data-inline="true" data-transition="pop" data-rel="dialog">Explore</a>
 		</div>
 	</div>
 	<!-- 	List View -->
 	<div data-role="page" id="listView">
 		<div data-role="header" data-position="fixed" data-tap-toggle="false">
 			<h1>List View</h1>
-			<a href="#menu">Map View</a>
+			<a href="#mapView">Map View</a>
 		</div>
 		<div data-role="content">
 			<ul data-role="listview" data-split-icon="gear" data-split-theme="d" class="ui-listview">
@@ -89,7 +90,7 @@
 	<div data-role="page" id="detailView">
 		<div data-role="header" data-position="fixed" data-tap-toggle="false">
 			<h1>Detail View</h1>
-			<a id="backToList" href="#listView">List View</a>
+			<a id="backToBefore">Back</a>
 		</div>
 		<div data-role="content">
 			<div id="detailNodeTitle"></div>

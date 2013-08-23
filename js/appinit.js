@@ -26,7 +26,7 @@ $(document).delegate("#fetch", "pageinit", function() {
 			// console.log(object);
 			fetchedData = sortByKey(object._serverData.results, 'ID');
 			// console.warn(fetchedData);
-			$.mobile.navigate('#listView');
+			$.mobile.navigate('#menu');
 		},
 		error: function(model, error) {
 			centerObj('#fetching');
@@ -39,6 +39,7 @@ $(document).delegate("#menu", "pageinit", function() {
 });
 
 // functions
+
 function centerObj(a) {
 	$(a).css({
 		'top': sH/2 - $(a).height()/2 - 56,
