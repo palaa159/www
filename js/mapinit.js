@@ -50,7 +50,7 @@ function init() {
 		.addTo(map)
 		.bindPopup('<a onclick="setCurrData(' + i + ');" href="#detailView"><div class="contextualView">' + v.address +'<br>' + v.author +'</div></a>');
 	});
-
+	map.invalidateSize();
 }
 
 function setCurrData(a) {

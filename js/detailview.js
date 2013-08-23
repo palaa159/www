@@ -29,9 +29,10 @@ $(document).delegate("#detailView", "pageshow", function() {
 		'height': WIDTH*9/16,
 		'src': url
 	});
-	setTimeout(function() {
-		player.api('play');
-	},1000);
+	// Auto play
+	// setTimeout(function() {
+	// 	player.api('play');
+	// },1000);
 	$('#detailSeqNum').html('[' + fetchedData[currData].ID + '/' + fetchedData.length + ']');
 	$('#detailNodeDesc').html(fetchedData[currData].desc);
 });
