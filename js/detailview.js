@@ -20,7 +20,7 @@ $(document).delegate("#detailView", "pageshow", function() {
 	$('#vimeo-player').attr({
 		'width': WIDTH,
 		'height': WIDTH*9/16,
-		'src': 'http://player.vimeo.com/video/' + fetchedData[currData].url + '?api=1'
+		'src': 'http://player.vimeo.com/video/' + fetchedData[currData].url + '?title=0&portrait=0&byline=0&api=1'
 	});
 	$('#detailSeqNum').html('[' + fetchedData[currData].ID + '/' + fetchedData.length + ']');
 	$('#detailNodeDesc').html(fetchedData[currData].desc);
